@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    # Copies the website into public_html each time you press "Deploy HEAD Commit" in cPanel.
+    # It only adds/overwrites files; it never deletes anything (so .well-known and mail folders are safe).
+    - export DEPLOYPATH=$HOME/public_html/
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R study-abroad university-admission visa-assistance ielts spoken-english ticket-and-travel team contact privacy legal-notice $DEPLOYPATH
+    - /bin/cp index.html 404.html contact.php robots.txt sitemap.xml .htaccess $DEPLOYPATH
